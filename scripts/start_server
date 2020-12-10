@@ -1,0 +1,3 @@
+mkdir /opt/goapp
+unzip /tmp/GoApp.zip
+/opt/goapp/application
