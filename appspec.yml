@@ -1,0 +1,7 @@
+version: 0.0
+os: linux
+files:
+- source: GoApp.zip
+  destination: /opt/goapp
+- source: public/index.html
+  destination: /opt/goapp/public/index.html

@@ -9,6 +9,6 @@ phases:
     - go build -o application
   post_build:
     commands:
-    - zip goapp.zip application public/index.html
+    - zip GoApp.zip application public/index.html
   artifact:
-    - goapp.zip
+    - GoApp.zip
