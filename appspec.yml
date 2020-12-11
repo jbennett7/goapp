@@ -1,8 +1,10 @@
 version: 0.0
 os: linux
 files:
-- source: GoApp.zip
-  destination: /tmp
+- source: application
+  destination: /opt/goapp
+- source: public/index.html
+  destination: /opt/goapp/public
 hooks:
   ApplicationStart:
   - location: scripts/start_server

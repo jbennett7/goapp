@@ -12,4 +12,7 @@ phases:
     - zip GoApp.zip application appspec.yml public/index.html
 artifacts:
   files:
-  - GoApp.zip
+  - appspec.yml
+  - application
+  - public/index.html
+  discard-paths: no
