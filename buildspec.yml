@@ -10,6 +10,6 @@ phases:
   post_build:
     commands:
     - zip GoApp.zip application public/index.html
-  artifacts:
-    files:
-    - GoApp.zip
+artifacts:
+  files:
+  - GoApp.zip
