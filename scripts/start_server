@@ -1,3 +1,4 @@
 mkdir /opt/goapp
 unzip /tmp/GoApp.zip
-/opt/goapp/application
+/opt/goapp/application &
+echo "${!}" > /tmp/app.pid
