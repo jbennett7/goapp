@@ -1,2 +1,1 @@
 /opt/goapp/application &
-echo "${!}" > /tmp/app.pid
