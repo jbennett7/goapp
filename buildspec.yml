@@ -4,14 +4,15 @@ phases:
   install:
     runtime-versions:
       golang: 1.13
+  pre_build:
+    commands:
+    - echo Logging into Amazon ECR...
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ect.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
     - go build -o application
-artifacts:
-  files:
-  - appspec.yml
-  - application
-  - public/index.html
-  - scripts/start_server
-  name: GoApp-$(date +'%s').zip
-  discard-paths: no
+    - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+    - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+  post_build:
+    commands:
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
