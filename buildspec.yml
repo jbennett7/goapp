@@ -13,4 +13,5 @@ artifacts:
   - application
   - public/index.html
   - scripts/start_server
+  name: GoApp-$(date +'%s')
   discard-paths: no
